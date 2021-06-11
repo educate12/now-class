@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "771073635336",
+    "firebase_url": "https://now-class-default-rtdb.firebaseio.com",
+    "project_id": "now-class",
+    "storage_bucket": "now-class.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771073635336:android:e6430f492bec2444994dbd",
+        "android_client_info": {
+          "package_name": "com.flutterflow.nowclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771073635336-pl8c0btun9k1kv2au5ag9odujq45mqir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFPoxNwfLzNxSKbcIoRNca4RxGeFTdjzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771073635336-pl8c0btun9k1kv2au5ag9odujq45mqir.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "771073635336-s6nebgetsdf6sfob1gq2kdgm506dqflr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.nowclass"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
