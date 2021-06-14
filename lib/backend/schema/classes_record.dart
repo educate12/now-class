@@ -93,6 +93,18 @@ abstract class ClassesRecord
   double get tutorRating;
 
   @nullable
+  @BuiltValueField(wireName: 'student_address')
+  String get studentAddress;
+
+  @nullable
+  @BuiltValueField(wireName: 'tutor_address')
+  String get tutorAddress;
+
+  @nullable
+  @BuiltValueField(wireName: 'tutor_picture')
+  String get tutorPicture;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -116,7 +128,10 @@ abstract class ClassesRecord
     ..tutorName = ''
     ..tutorEmail = ''
     ..tutorNumber = ''
-    ..tutorRating = 0.0;
+    ..tutorRating = 0.0
+    ..studentAddress = ''
+    ..tutorAddress = ''
+    ..tutorPicture = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Classes');
@@ -152,6 +167,9 @@ Map<String, dynamic> createClassesRecordData({
   String tutorEmail,
   String tutorNumber,
   double tutorRating,
+  String studentAddress,
+  String tutorAddress,
+  String tutorPicture,
 }) =>
     serializers.toFirestore(
         ClassesRecord.serializer,
@@ -177,7 +195,10 @@ Map<String, dynamic> createClassesRecordData({
           ..tutorName = tutorName
           ..tutorEmail = tutorEmail
           ..tutorNumber = tutorNumber
-          ..tutorRating = tutorRating));
+          ..tutorRating = tutorRating
+          ..studentAddress = studentAddress
+          ..tutorAddress = tutorAddress
+          ..tutorPicture = tutorPicture));
 
 ClassesRecord get dummyClassesRecord {
   final builder = ClassesRecordBuilder()
@@ -201,7 +222,10 @@ ClassesRecord get dummyClassesRecord {
     ..tutorName = dummyString
     ..tutorEmail = dummyString
     ..tutorNumber = dummyString
-    ..tutorRating = dummyDouble;
+    ..tutorRating = dummyDouble
+    ..studentAddress = dummyString
+    ..tutorAddress = dummyString
+    ..tutorPicture = dummyImagePath;
   return builder.build();
 }
 

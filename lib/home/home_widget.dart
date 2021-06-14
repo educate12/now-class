@@ -154,7 +154,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               alignment: Alignment(-0.04, 0.91),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await Navigator.pushAndRemoveUntil(
+                  await Navigator.push(
                     context,
                     PageTransition(
                       type: PageTransitionType.fade,
@@ -162,7 +162,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                       reverseDuration: Duration(milliseconds: 0),
                       child: BookWidget(),
                     ),
-                    (r) => false,
                   );
                 },
                 text: 'Book a Now Class',

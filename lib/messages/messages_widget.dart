@@ -82,133 +82,144 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                           width: 2,
                         ),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment(-0.8, -0.2),
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                    child: Text(
-                                      columnNotificationsRecord.from,
-                                      style: FlutterFlowTheme.title1.override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFFFFA600),
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MessageDetailsWidget(),
+                            ),
+                          );
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment(-0.8, -0.2),
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                      child: Text(
+                                        columnNotificationsRecord.from,
+                                        style: FlutterFlowTheme.title1.override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFFFFA600),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 10, 10, 0),
-                                child: Text(
-                                  dateTimeFormat('relative',
-                                      columnNotificationsRecord.dateAndTime),
-                                  textAlign: TextAlign.end,
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.primaryColor,
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(0, 10, 10, 0),
+                                  child: Text(
+                                    dateTimeFormat('relative',
+                                        columnNotificationsRecord.dateAndTime),
+                                    textAlign: TextAlign.end,
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.primaryColor,
+                                    ),
                                   ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Divider(
-                            color: Color(0xFFFFA600),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment(-0.6, 0),
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                                    child: Text(
-                                      columnNotificationsRecord.message,
-                                      style:
-                                          FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFFFFA600),
+                                )
+                              ],
+                            ),
+                            Divider(
+                              color: Color(0xFFFFA600),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment(-0.6, 0),
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                                      child: Text(
+                                        columnNotificationsRecord.message,
+                                        style:
+                                            FlutterFlowTheme.bodyText1.override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFFFFA600),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment(0.95, 0),
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 2, 10, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 1),
-                                            reverseDuration:
-                                                Duration(milliseconds: 1),
-                                            child: MessageDetailsWidget(),
-                                          ),
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFFFFA600),
-                                        size: 24,
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment(0.95, 0),
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 2, 10, 0),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                              reverseDuration:
+                                                  Duration(milliseconds: 1000),
+                                              child: MessageDetailsWidget(),
+                                            ),
+                                          );
+                                        },
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFFFFA600),
+                                          size: 24,
+                                        ),
                                       ),
                                     ),
                                   ),
+                                )
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                              child: Container(
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                            child: Container(
-                              height: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                            child: Container(
-                              height: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(16),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                              child: Container(
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                            child: Container(
-                              height: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(16),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                              child: Container(
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                            child: Container(
-                              height: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(16),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                              child: Container(
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );

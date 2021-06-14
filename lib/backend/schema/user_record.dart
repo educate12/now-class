@@ -62,6 +62,10 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
   String get tutorLocation;
 
   @nullable
+  @BuiltValueField(wireName: 'temp_price')
+  double get tempPrice;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -76,7 +80,8 @@ abstract class UserRecord implements Built<UserRecord, UserRecordBuilder> {
     ..totalClasses = 0
     ..online = false
     ..studentLocation = ''
-    ..tutorLocation = '';
+    ..tutorLocation = ''
+    ..tempPrice = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('User');
@@ -103,6 +108,7 @@ Map<String, dynamic> createUserRecordData({
   bool online,
   String studentLocation,
   String tutorLocation,
+  double tempPrice,
 }) =>
     serializers.toFirestore(
         UserRecord.serializer,
@@ -119,7 +125,8 @@ Map<String, dynamic> createUserRecordData({
           ..totalClasses = totalClasses
           ..online = online
           ..studentLocation = studentLocation
-          ..tutorLocation = tutorLocation));
+          ..tutorLocation = tutorLocation
+          ..tempPrice = tempPrice));
 
 UserRecord get dummyUserRecord {
   final builder = UserRecordBuilder()
@@ -134,7 +141,8 @@ UserRecord get dummyUserRecord {
     ..totalClasses = dummyInteger
     ..online = dummyBoolean
     ..studentLocation = dummyString
-    ..tutorLocation = dummyString;
+    ..tutorLocation = dummyString
+    ..tempPrice = dummyDouble;
   return builder.build();
 }
 
