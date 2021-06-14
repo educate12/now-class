@@ -108,8 +108,7 @@ class _ClassesWidgetState extends State<ClassesWidget> {
                                                 dateTimeFormat(
                                                     'relative',
                                                     columnClassesRecord
-                                                        .completeTime
-                                                        .toDate()),
+                                                        .completeTime),
                                                 textAlign: TextAlign.end,
                                                 style: FlutterFlowTheme
                                                     .bodyText1

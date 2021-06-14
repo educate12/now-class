@@ -106,10 +106,8 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(0, 10, 10, 0),
                                 child: Text(
-                                  dateTimeFormat(
-                                      'relative',
-                                      columnNotificationsRecord.dateAndTime
-                                          .toDate()),
+                                  dateTimeFormat('relative',
+                                      columnNotificationsRecord.dateAndTime),
                                   textAlign: TextAlign.end,
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Poppins',

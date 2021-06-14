@@ -2,6 +2,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:latlong/latlong.dart';
 
 import 'schema_util.dart';
 import 'serializers.dart';
@@ -18,7 +19,7 @@ abstract class NotificationsRecord
 
   @nullable
   @BuiltValueField(wireName: 'date_and_time')
-  Timestamp get dateAndTime;
+  DateTime get dateAndTime;
 
   @nullable
   String get from;
@@ -53,12 +54,12 @@ abstract class NotificationsRecord
 
 Map<String, dynamic> createNotificationsRecordData({
   String message,
-  Timestamp dateAndTime,
+  DateTime dateAndTime,
   String from,
   DocumentReference to,
   bool read,
 }) =>
-    serializers.serializeWith(
+    serializers.toFirestore(
         NotificationsRecord.serializer,
         NotificationsRecord((n) => n
           ..message = message

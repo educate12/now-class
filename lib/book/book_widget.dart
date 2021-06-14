@@ -28,12 +28,6 @@ class _BookWidgetState extends State<BookWidget> {
   @override
   void initState() {
     super.initState();
-    codeValue = 'EE012';
-    courseValue = 'ELECTRICAL (HIGH CERT.)';
-    universityValue = 'TUT';
-    subjectValue = 'MATHS I';
-    typeValue = 'ONLINE';
-    paymentValue = 'CASH';
     topicController = TextEditingController();
   }
 

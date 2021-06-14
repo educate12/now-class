@@ -10,6 +10,7 @@ import 'schema/notifications_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
+export 'schema/serializers.dart';
 export 'schema/user_record.dart';
 export 'schema/classes_record.dart';
 export 'schema/notifications_record.dart';

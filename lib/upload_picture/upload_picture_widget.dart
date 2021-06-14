@@ -20,8 +20,8 @@ class UploadPictureWidget extends StatefulWidget {
 }
 
 class _UploadPictureWidgetState extends State<UploadPictureWidget> {
-  String uploadedFileUrl1;
-  String uploadedFileUrl2;
+  String uploadedFileUrl1 = '';
+  String uploadedFileUrl2 = '';
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

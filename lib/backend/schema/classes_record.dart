@@ -2,6 +2,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:latlong/latlong.dart';
 
 import 'schema_util.dart';
 import 'serializers.dart';
@@ -32,7 +33,7 @@ abstract class ClassesRecord
 
   @nullable
   @BuiltValueField(wireName: 'created_time')
-  Timestamp get createdTime;
+  DateTime get createdTime;
 
   @nullable
   @BuiltValueField(wireName: 'phone_number')
@@ -70,7 +71,7 @@ abstract class ClassesRecord
 
   @nullable
   @BuiltValueField(wireName: 'complete_time')
-  Timestamp get completeTime;
+  DateTime get completeTime;
 
   @nullable
   double get price;
@@ -135,7 +136,7 @@ Map<String, dynamic> createClassesRecordData({
   String displayName,
   String photoUrl,
   String uid,
-  Timestamp createdTime,
+  DateTime createdTime,
   String phoneNumber,
   String university,
   String course,
@@ -145,14 +146,14 @@ Map<String, dynamic> createClassesRecordData({
   String payementMethod,
   String topic,
   String status,
-  Timestamp completeTime,
+  DateTime completeTime,
   double price,
   String tutorName,
   String tutorEmail,
   String tutorNumber,
   double tutorRating,
 }) =>
-    serializers.serializeWith(
+    serializers.toFirestore(
         ClassesRecord.serializer,
         ClassesRecord((c) => c
           ..subject = subject
